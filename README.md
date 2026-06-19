@@ -1,6 +1,6 @@
 # Schedule Builder
 
-![Python](https://img.shields.io/badge/python-3.13+-blue.svg)
+![Python](https://img.shields.io/badge/python-3.12+-blue.svg)
 ![Status](https://img.shields.io/badge/status-concept%20development-orange)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Version](https://img.shields.io/badge/version-0.1.0-lightgrey)
