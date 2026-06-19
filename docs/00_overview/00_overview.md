@@ -1,4 +1,4 @@
-_# Schedule Builder
+# Schedule Builder
 
 ## Overview
 
