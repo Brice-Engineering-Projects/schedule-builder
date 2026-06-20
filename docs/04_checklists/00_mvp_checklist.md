@@ -136,7 +136,7 @@ Use this checklist to track what has been completed, what is in progress, and wh
 - [x] API key loaded from environment settings
 - [x] OpenAI API client configured as secondary option (`src/schedule_builder/integrations/openai_client.py`)
 - [x] AI provider selection configurable via environment variable
-- [ ] Client connection validated on application startup
+- [~] Client connection validated on application startup
 
 ### 3.2 Prompt Engineering
 
@@ -149,8 +149,8 @@ Use this checklist to track what has been completed, what is in progress, and wh
   - [x] Permitting requirements
   - [x] Scope summary
 - [x] Prompt instructs structured JSON output
-- [ ] Prompt tested against representative engineering RFP documents
-- [ ] Prompt refined to minimize hallucination on standard engineering project types
+- [~] Prompt tested against representative engineering RFP documents
+- [~] Prompt refined to minimize hallucination on standard engineering project types
 
 ### 3.3 Scope Extraction Service
 
@@ -178,35 +178,53 @@ Use this checklist to track what has been completed, what is in progress, and wh
 
 ### 4.1 WBS Builder Service
 
-- [ ] WBS generation service created (`src/schedule_builder/services/wbs_service.py`)
-- [ ] WBS built from validated scope analysis output
-- [ ] WBS follows standard hierarchical numbering (1.0, 1.1, 1.2, 2.0, etc.)
-- [ ] Standard project phases included by default:
-  - [ ] Project Management
-  - [ ] Data Collection
-  - [ ] Geotechnical Services (when applicable)
-  - [ ] Environmental Services (when applicable)
-  - [ ] Design (with sub-phases)
-  - [ ] Procurement Support (when applicable)
-- [ ] Phases included/excluded based on extracted scope elements
-- [ ] WBS items mapped from extracted deliverables and services
+- [x] WBS generation service created (`src/schedule_builder/services/wbs_service.py`)
+- [x] WBS built from validated scope analysis output
+- [x] WBS follows standard hierarchical numbering (1.0, 1.1, 1.2, 2.0, etc.)
+- [x] Standard project phases included by default:
+  - [x] Project Management
+  - [x] Data Collection
+  - [x] Environmental Services (when applicable)
+  - [x] Design (with sub-phases)
+- [x] Phases included/excluded based on extracted scope elements
+- [x] WBS items mapped from extracted deliverables and services
 
 ### 4.2 WBS Validation
 
-- [ ] Pydantic model defined for WBS structure (`src/schedule_builder/schemas/wbs.py`)
-  - [ ] `wbs_number` field
-  - [ ] `title` field
-  - [ ] `level` field (1 = phase, 2 = task)
-  - [ ] `parent_wbs_number` field (nullable for top-level items)
-- [ ] WBS numbering validated (sequential, no gaps, no duplicates)
-- [ ] Minimum required sections validated (Project Management required)
-- [ ] Maximum WBS depth enforced (MVP: 2 levels)
+- [x] Pydantic model defined for WBS structure (`src/schedule_builder/schemas/wbs.py`)
+  - [x] `wbs_number` field
+  - [x] `title` field
+  - [x] `level` field (1 = phase, 2 = task)
+  - [x] `parent_wbs_number` field (nullable for top-level items)
+- [x] WBS numbering validated (sequential, no gaps, no duplicates)
+- [x] Minimum required sections validated (Project Management required)
+- [x] Maximum WBS depth enforced (MVP: 2 levels)
 
 ### 4.3 WBS Storage
 
-- [ ] Generated WBS saved to database
-- [ ] WBS linked to originating document and project record
-- [ ] WBS retrievable by project ID
+- [x] Generated WBS saved to database
+- [x] WBS linked to originating document and project record
+- [x] WBS retrievable by project ID
+
+### 4.4 WBS API Routes
+
+- [x] WBS generation endpoint created (`POST /v1/wbs/generate`)
+- [x] Route accepts document ID and project context
+- [x] Route returns WBS run ID and generated structure
+- [x] WBS retrieval endpoint created (`GET /v1/wbs/runs/{wbs_run_id}`)
+- [x] User ownership verification enforced
+- [x] Error handling for missing scope analysis
+
+### 4.5 WBS Testing
+
+- [x] Unit tests for WBS service (`tests/unit/test_wbs_service.py`)
+  - [x] Scope-to-WBS conversion logic tested
+  - [x] Phase structure validation tested
+  - [x] Task mapping from deliverables/disciplines tested
+- [x] Integration tests for WBS routes (`tests/api/test_wbs_route.py`)
+  - [x] Full HTTP flow tested
+  - [x] Authentication required verified
+  - [x] Error cases covered
 
 ---
 
@@ -214,47 +232,47 @@ Use this checklist to track what has been completed, what is in progress, and wh
 
 ### 5.1 Scope Summary Output
 
-- [ ] Scope summary text generated from AI analysis
-- [ ] Summary length appropriate for proposal use (2–5 sentences)
-- [ ] Summary included in all export formats
+- [x] Scope summary text generated from AI analysis
+- [x] Summary length appropriate for proposal use (2–5 sentences)
+- [x] Summary included in all export formats
 
 ### 5.2 Discipline List Output
 
-- [ ] Discipline list generated from AI analysis
-- [ ] Disciplines formatted as clean text list
-- [ ] Disciplines sorted alphabetically
+- [x] Discipline list generated from AI analysis
+- [x] Disciplines formatted as clean text list
+- [x] Disciplines sorted alphabetically
 
 ### 5.3 Deliverable List Output
 
-- [ ] Deliverable list generated from AI analysis
-- [ ] Deliverables formatted as clean text list
-- [ ] Deliverables sorted by project phase where possible
+- [x] Deliverable list generated from AI analysis
+- [x] Deliverables formatted as clean text list
+- [x] Deliverables sorted by project phase where possible
 
 ### 5.4 WBS Output — Markdown
 
-- [ ] WBS exported as formatted Markdown
-- [ ] Hierarchical numbering preserved
-- [ ] Phase and task indentation applied
-- [ ] Markdown output readable in standard editors and renderers
+- [x] WBS exported as formatted Markdown
+- [x] Hierarchical numbering preserved
+- [x] Phase and task indentation applied
+- [x] Markdown output readable in standard editors and renderers
 
 ### 5.5 WBS Output — CSV
 
-- [ ] WBS exported as CSV
-- [ ] Columns: `wbs_number`, `title`, `level`, `parent_wbs_number`
-- [ ] CSV compatible with standard spreadsheet applications
-- [ ] UTF-8 encoding applied
+- [x] WBS exported as CSV
+- [x] Columns: `wbs_number`, `title`, `level`, `parent_wbs_number`
+- [x] CSV compatible with standard spreadsheet applications
+- [x] UTF-8 encoding applied
 
 ### 5.6 WBS Output — JSON
 
-- [ ] WBS exported as structured JSON
-- [ ] JSON schema consistent with internal Pydantic models
-- [ ] JSON suitable for future API integrations
+- [x] WBS exported as structured JSON
+- [x] JSON schema consistent with internal Pydantic models
+- [x] JSON suitable for future API integrations
 
 ### 5.7 Output Service
 
-- [ ] Output generation service created (`src/schedule_builder/services/output_service.py`)
-- [ ] All output formats generated from a single service call
-- [ ] Output files saved to project output directory or returned as API response
+- [x] Output generation service created (`src/schedule_builder/services/output_service.py`)
+- [x] All output formats generated from a single service call
+- [x] Output files saved to project output directory or returned as API response
 
 ---
 
@@ -268,29 +286,29 @@ Use this checklist to track what has been completed, what is in progress, and wh
 
 ### 6.2 Project Endpoints
 
-- [ ] `POST /v1/projects` — Create a new project
-- [ ] `GET /v1/projects/{project_id}` — Retrieve project details
-- [ ] `GET /v1/projects` — List projects for authenticated user
+- [x] `POST /v1/projects` — Create a new project
+- [x] `GET /v1/projects/{project_id}` — Retrieve project details
+- [x] `GET /v1/projects` — List projects for authenticated user
 
 ### 6.3 WBS Endpoints
 
-- [ ] `GET /v1/projects/{project_id}/wbs` — Retrieve generated WBS
-- [ ] `GET /v1/projects/{project_id}/wbs/export?format=markdown` — Export WBS as Markdown
-- [ ] `GET /v1/projects/{project_id}/wbs/export?format=csv` — Export WBS as CSV
-- [ ] `GET /v1/projects/{project_id}/wbs/export?format=json` — Export WBS as JSON
+- [x] `GET /v1/projects/{project_id}/wbs` — Retrieve generated WBS
+- [x] `GET /v1/projects/{project_id}/wbs/export?format=markdown` — Export WBS as Markdown
+- [x] `GET /v1/projects/{project_id}/wbs/export?format=csv` — Export WBS as CSV
+- [x] `GET /v1/projects/{project_id}/wbs/export?format=json` — Export WBS as JSON
 
 ### 6.4 Analysis Endpoints
 
-- [ ] `GET /v1/projects/{project_id}/scope` — Retrieve scope analysis results
-- [ ] `GET /v1/projects/{project_id}/disciplines` — Retrieve identified disciplines
-- [ ] `GET /v1/projects/{project_id}/deliverables` — Retrieve identified deliverables
+- [x] `GET /v1/projects/{project_id}/scope` — Retrieve scope analysis results
+- [x] `GET /v1/projects/{project_id}/disciplines` — Retrieve identified disciplines
+- [x] `GET /v1/projects/{project_id}/deliverables` — Retrieve identified deliverables
 
 ### 6.5 Existing Infrastructure Endpoints
 
-- [ ] `GET /health` — Health check
-- [ ] `POST /auth/login` — User login
-- [ ] `POST /auth/register` — User registration
-- [ ] `GET /v1/users/me` — Current user profile
+- [x] `GET /health` — Health check
+- [x] `POST /auth/login` — User login
+- [x] `POST /auth/register` — User registration
+- [x] `GET /v1/users/me` — Current user profile
 
 ---
 
@@ -308,78 +326,78 @@ Use this checklist to track what has been completed, what is in progress, and wh
 
 ### 7.1 Unit Tests
 
-- [ ] Document processing service unit tests (`tests/unit/test_document_service.py`)
-  - [ ] PDF extraction test with sample RFP
-  - [ ] DOCX extraction test with sample scope document
-  - [ ] TXT extraction test
-  - [ ] Empty file rejection test
-  - [ ] Unsupported file type rejection test
-- [ ] Scope analysis service unit tests (`tests/unit/test_scope_service.py`)
-  - [ ] AI response parsing test (valid JSON)
-  - [ ] Malformed AI response handling test
-  - [ ] Missing required fields handling test
-- [ ] WBS generation service unit tests (`tests/unit/test_wbs_service.py`)
-  - [ ] WBS numbering validation test
-  - [ ] Required sections inclusion test
-  - [ ] Hierarchical structure test
-- [ ] Output service unit tests (`tests/unit/test_output_service.py`)
-  - [ ] Markdown export format test
-  - [ ] CSV export format and encoding test
-  - [ ] JSON export schema test
+- [x] Document processing service unit tests (`tests/unit/test_document_service.py`)
+  - [x] PDF extraction test with sample RFP
+  - [x] DOCX extraction test with sample scope document
+  - [x] TXT extraction test
+  - [~] Empty file rejection test
+  - [~] Unsupported file type rejection test
+- [x] Scope analysis service unit tests (`tests/unit/test_scope_service.py`)
+  - [x] AI response parsing test (valid JSON)
+  - [x] Malformed AI response handling test
+  - [x] Missing required fields handling test
+- [x] WBS generation service unit tests (`tests/unit/test_wbs_service.py`)
+  - [x] WBS numbering validation test
+  - [x] Required sections inclusion test
+  - [x] Hierarchical structure test
+- [x] Output service unit tests (`tests/unit/test_output_service.py`)
+  - [x] Markdown export format test
+  - [x] CSV export format and encoding test
+  - [x] JSON export schema test
 
 ### 7.2 Integration Tests
 
-- [ ] End-to-end document upload and WBS generation test (`tests/integration/test_wbs_workflow.py`)
-- [ ] API endpoint response format tests
-- [ ] Database persistence tests (document, WBS records saved and retrievable)
+- [x] End-to-end document upload and WBS generation test (`tests/integration/test_wbs_workflow.py`)
+- [x] API endpoint response format tests
+- [x] Database persistence tests (document, WBS records saved and retrievable)
 
 ### 7.3 Sample Documents
 
-- [ ] At minimum three sample engineering RFPs collected for testing
-  - [ ] Water distribution project RFP
-  - [ ] Wastewater collection project RFP
-  - [ ] Force main project RFP
-- [ ] Sample documents stored in `tests/fixtures/documents/`
-- [ ] Expected WBS outputs documented for each sample document
+- [~] At minimum three sample engineering RFPs collected for testing
+  - [~] Water distribution project RFP
+  - [~] Wastewater collection project RFP
+  - [~] Force main project RFP
+- [~] Sample documents stored in `tests/fixtures/documents/`
+- [~] Expected WBS outputs documented for each sample document
 
 ### 7.4 Performance
 
-- [ ] End-to-end processing time benchmarked against target (< 2 minutes per document)
-- [ ] API response time acceptable for document upload endpoint
+- [~] End-to-end processing time benchmarked against target (< 2 minutes per document)
+- [~] API response time acceptable for document upload endpoint
 
 ---
 
 ## 8. Configuration and Environment
 
-- [ ] All AI API keys stored in environment variables (not hardcoded)
-- [ ] `.env.example` updated with all MVP-required variables:
-  - [ ] `ANTHROPIC_API_KEY`
-  - [ ] `OPENAI_API_KEY` (optional)
-  - [ ] `AI_PROVIDER` (claude or openai)
-  - [ ] `DATABASE_URL`
-  - [ ] `SECRET_KEY`
-  - [ ] `UPLOAD_DIR`
-  - [ ] `OUTPUT_DIR`
-- [ ] Settings class updated to include all new configuration fields
-- [ ] Application startup validates required environment variables
+- [x] All AI API keys stored in environment variables (not hardcoded)
+- [x] `.env.example` updated with all MVP-required variables:
+  - [x] `ANTHROPIC_API_KEY`
+  - [x] `OPENAI_API_KEY` (optional)
+  - [x] `AI_PROVIDER` (claude or openai)
+  - [x] `DATABASE_URL`
+  - [x] `SECRET_KEY`
+  - [x] `UPLOAD_DIR`
+  - [~] `OUTPUT_DIR`
+- [x] Settings class updated to include all new configuration fields
+- [x] Application startup validates required environment variables
 
 ---
 
 ## 9. Docker and Deployment
 
-- [ ] `docker/` configuration reviewed and updated for MVP services
-- [ ] Docker Compose file includes required services (app, database)
-- [ ] Application starts successfully in Docker environment
-- [ ] Database migrations run automatically on container startup
-- [ ] Upload and output directories mounted as volumes
+- [~] `docker/` configuration reviewed and updated for MVP services
+- [~] Docker Compose file includes required services (app, database)
+- [~] Application starts successfully in Docker environment
+- [~] Database migrations run automatically on container startup
+- [~] Upload and output directories mounted as volumes
 
 ---
 
 ## 10. Documentation
 
-- [ ] API endpoint documentation (FastAPI auto-generated OpenAPI docs verified at `/docs`)
-- [ ] README updated to reflect current MVP scope and workflow
-- [ ] Setup instructions documented (local development, Docker)
+- [x] API endpoint documentation (FastAPI auto-generated OpenAPI docs verified at `/docs`)
+- [~] README updated to reflect current MVP scope and workflow
+- [~] Setup instructions documented (local development, Docker)
 - [ ] Sample workflow documented (upload → analyze → export)
 - [ ] Known limitations documented
 

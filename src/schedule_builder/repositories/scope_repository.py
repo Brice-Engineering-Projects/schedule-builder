@@ -5,6 +5,7 @@ from __future__ import annotations
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
+from schedule_builder.models.document import Document
 from schedule_builder.models.scope_analysis import ScopeAnalysis
 
 
@@ -16,6 +17,16 @@ class ScopeRepository:
 
     def get_by_document_id(self, document_id: str) -> ScopeAnalysis | None:
         stmt = select(ScopeAnalysis).where(ScopeAnalysis.document_id == document_id)
+        return self._db.scalar(stmt)
+
+    def get_latest_by_project_id(self, project_id: str) -> ScopeAnalysis | None:
+        """Return the most recent scope analysis for any document in a project."""
+        stmt = (
+            select(ScopeAnalysis)
+            .join(Document, ScopeAnalysis.document_id == Document.id)
+            .where(Document.project_id == project_id)
+            .order_by(ScopeAnalysis.created_at.desc())
+        )
         return self._db.scalar(stmt)
 
     def upsert(

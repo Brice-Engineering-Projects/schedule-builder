@@ -5,7 +5,6 @@ import io
 import fitz  # type: ignore[import-untyped]
 from docx import Document as DocxDocument  # type: ignore[import-untyped]
 
-from schedule_builder.config.settings import settings
 from schedule_builder.models.project import Project
 
 
@@ -33,6 +32,8 @@ def test_upload_document_requires_auth(client) -> None:
 
 
 def test_upload_pdf_document(client, db_session, tmp_path, monkeypatch) -> None:
+    from schedule_builder.config.settings import settings
+
     monkeypatch.setattr(settings, "upload_directory", str(tmp_path / "uploads"))
 
     register_response = client.post(
@@ -76,6 +77,8 @@ def test_upload_pdf_document(client, db_session, tmp_path, monkeypatch) -> None:
 
 
 def test_upload_docx_document(client, db_session, tmp_path, monkeypatch) -> None:
+    from schedule_builder.config.settings import settings
+
     monkeypatch.setattr(settings, "upload_directory", str(tmp_path / "uploads"))
 
     register_response = client.post(

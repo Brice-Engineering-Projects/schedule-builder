@@ -1,3 +1,4 @@
+import os
 import sys
 from collections.abc import Generator
 from pathlib import Path
@@ -15,6 +16,23 @@ if str(SRC_PATH) not in sys.path:
     sys.path.insert(0, str(SRC_PATH))
 
 SQLITE_URL = "sqlite://"
+
+# Set test environment BEFORE any imports from schedule_builder
+os.environ["ENVIRONMENT"] = "testing"
+os.environ["TEST_DATABASE_URL"] = SQLITE_URL
+
+
+def pytest_configure(config):
+    """Configure pytest before test collection."""
+    # Ensure environment is set before any imports
+    os.environ["ENVIRONMENT"] = "testing"
+    os.environ["TEST_DATABASE_URL"] = SQLITE_URL
+
+
+def pytest_sessionstart(session):
+    """Pytest session start hook - runs before test collection."""
+    os.environ["ENVIRONMENT"] = "testing"
+    os.environ["TEST_DATABASE_URL"] = SQLITE_URL
 
 
 @pytest.fixture(scope="session")
