@@ -180,6 +180,10 @@ class Settings(BaseSettings):
         default="gpt-4",
         description="OpenAI model ID",
     )
+    ai_provider: Literal["claude", "openai"] = Field(
+        default="claude",
+        description="Primary AI provider for scope analysis",
+    )
 
     # SendGrid (Email)
     sendgrid_api_key: str = Field(

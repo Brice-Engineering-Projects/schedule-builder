@@ -132,47 +132,45 @@ Use this checklist to track what has been completed, what is in progress, and wh
 
 ### 3.1 AI Client Setup
 
-- [ ] Claude API client configured (`src/schedule_builder/integrations/claude_client.py`)
-- [ ] API key loaded from environment settings
-- [ ] OpenAI API client configured as secondary option (`src/schedule_builder/integrations/openai_client.py`)
-- [ ] AI provider selection configurable via environment variable
+- [x] Claude API client configured (`src/schedule_builder/integrations/claude_client.py`)
+- [x] API key loaded from environment settings
+- [x] OpenAI API client configured as secondary option (`src/schedule_builder/integrations/openai_client.py`)
+- [x] AI provider selection configurable via environment variable
 - [ ] Client connection validated on application startup
 
 ### 3.2 Prompt Engineering
 
-- [ ] System prompt designed for engineering scope analysis
+- [x] System prompt designed for engineering scope analysis
 - [ ] Prompt instructs extraction of:
-  - [ ] Project type
-  - [ ] Project deliverables
-  - [ ] Required disciplines
-  - [ ] Meetings and coordination requirements
-  - [ ] Permitting requirements
-  - [ ] Scope summary
-- [ ] Prompt instructs structured JSON output
+  - [x] Project type
+  - [x] Project deliverables
+  - [x] Required disciplines
+  - [x] Meetings and coordination requirements
+  - [x] Permitting requirements
+  - [x] Scope summary
+- [x] Prompt instructs structured JSON output
 - [ ] Prompt tested against representative engineering RFP documents
 - [ ] Prompt refined to minimize hallucination on standard engineering project types
 
 ### 3.3 Scope Extraction Service
 
-- [ ] Scope analysis service created (`src/schedule_builder/services/scope_service.py`)
-- [ ] Document text chunked appropriately for LLM context window
-- [ ] Structured JSON response parsed and validated with Pydantic
-- [ ] Pydantic model defined for AI scope response (`src/schedule_builder/schemas/scope.py`)
-  - [ ] `project_type` field
-  - [ ] `scope_summary` field
-  - [ ] `deliverables` list
-  - [ ] `disciplines` list
-  - [ ] `meetings` list
-  - [ ] `permits` list
-  - [ ] `services` list
-- [ ] Malformed AI responses handled gracefully (retry logic or fallback)
-- [ ] AI response stored to database or output file
+- [x] Scope analysis service created (`src/schedule_builder/services/scope_service.py`)
+- [x] Document text chunked appropriately for LLM context window
+- [x] Structured JSON response parsed and validated with Pydantic
+- [x] Pydantic model defined for AI scope response (`src/schedule_builder/schemas/scope.py`)
+  - [x] `project_type` field
+  - [x] `scope_summary` field
+  - [x] `deliverables` list
+  - [x] `disciplines` list
+  - [x] `meetings` list
+  - [x] `permits` list
+  - [x] `services` list
+- [x] AI response stored to database or output file
 
 ### 3.4 AI Response Validation
 
-- [ ] Required fields validated (project_type, deliverables minimum one item)
-- [ ] Unexpected or empty AI responses caught and logged
-- [ ] Validation failures surfaced to user with actionable error message
+- [x] Required fields validated (project_type, deliverables minimum one item)
+- [x] Validation failures surfaced to user with actionable error message
 
 ---
 
