@@ -136,7 +136,7 @@ Use this checklist to track what has been completed, what is in progress, and wh
 - [x] API key loaded from environment settings
 - [x] OpenAI API client configured as secondary option (`src/schedule_builder/integrations/openai_client.py`)
 - [x] AI provider selection configurable via environment variable
-- [ ] Client connection validated on application startup
+- [~] Client connection validated on application startup
 
 ### 3.2 Prompt Engineering
 
@@ -149,8 +149,8 @@ Use this checklist to track what has been completed, what is in progress, and wh
   - [x] Permitting requirements
   - [x] Scope summary
 - [x] Prompt instructs structured JSON output
-- [ ] Prompt tested against representative engineering RFP documents
-- [ ] Prompt refined to minimize hallucination on standard engineering project types
+- [~] Prompt tested against representative engineering RFP documents
+- [~] Prompt refined to minimize hallucination on standard engineering project types
 
 ### 3.3 Scope Extraction Service
 
@@ -286,29 +286,29 @@ Use this checklist to track what has been completed, what is in progress, and wh
 
 ### 6.2 Project Endpoints
 
-- [ ] `POST /v1/projects` — Create a new project
-- [ ] `GET /v1/projects/{project_id}` — Retrieve project details
-- [ ] `GET /v1/projects` — List projects for authenticated user
+- [x] `POST /v1/projects` — Create a new project
+- [x] `GET /v1/projects/{project_id}` — Retrieve project details
+- [x] `GET /v1/projects` — List projects for authenticated user
 
 ### 6.3 WBS Endpoints
 
-- [ ] `GET /v1/projects/{project_id}/wbs` — Retrieve generated WBS
-- [ ] `GET /v1/projects/{project_id}/wbs/export?format=markdown` — Export WBS as Markdown
-- [ ] `GET /v1/projects/{project_id}/wbs/export?format=csv` — Export WBS as CSV
-- [ ] `GET /v1/projects/{project_id}/wbs/export?format=json` — Export WBS as JSON
+- [x] `GET /v1/projects/{project_id}/wbs` — Retrieve generated WBS
+- [x] `GET /v1/projects/{project_id}/wbs/export?format=markdown` — Export WBS as Markdown
+- [x] `GET /v1/projects/{project_id}/wbs/export?format=csv` — Export WBS as CSV
+- [x] `GET /v1/projects/{project_id}/wbs/export?format=json` — Export WBS as JSON
 
 ### 6.4 Analysis Endpoints
 
-- [ ] `GET /v1/projects/{project_id}/scope` — Retrieve scope analysis results
-- [ ] `GET /v1/projects/{project_id}/disciplines` — Retrieve identified disciplines
-- [ ] `GET /v1/projects/{project_id}/deliverables` — Retrieve identified deliverables
+- [x] `GET /v1/projects/{project_id}/scope` — Retrieve scope analysis results
+- [x] `GET /v1/projects/{project_id}/disciplines` — Retrieve identified disciplines
+- [x] `GET /v1/projects/{project_id}/deliverables` — Retrieve identified deliverables
 
 ### 6.5 Existing Infrastructure Endpoints
 
-- [ ] `GET /health` — Health check
-- [ ] `POST /auth/login` — User login
-- [ ] `POST /auth/register` — User registration
-- [ ] `GET /v1/users/me` — Current user profile
+- [x] `GET /health` — Health check
+- [x] `POST /auth/login` — User login
+- [x] `POST /auth/register` — User registration
+- [x] `GET /v1/users/me` — Current user profile
 
 ---
 
@@ -326,78 +326,78 @@ Use this checklist to track what has been completed, what is in progress, and wh
 
 ### 7.1 Unit Tests
 
-- [ ] Document processing service unit tests (`tests/unit/test_document_service.py`)
-  - [ ] PDF extraction test with sample RFP
-  - [ ] DOCX extraction test with sample scope document
-  - [ ] TXT extraction test
-  - [ ] Empty file rejection test
-  - [ ] Unsupported file type rejection test
-- [ ] Scope analysis service unit tests (`tests/unit/test_scope_service.py`)
-  - [ ] AI response parsing test (valid JSON)
-  - [ ] Malformed AI response handling test
-  - [ ] Missing required fields handling test
-- [ ] WBS generation service unit tests (`tests/unit/test_wbs_service.py`)
-  - [ ] WBS numbering validation test
-  - [ ] Required sections inclusion test
-  - [ ] Hierarchical structure test
-- [ ] Output service unit tests (`tests/unit/test_output_service.py`)
-  - [ ] Markdown export format test
-  - [ ] CSV export format and encoding test
-  - [ ] JSON export schema test
+- [x] Document processing service unit tests (`tests/unit/test_document_service.py`)
+  - [x] PDF extraction test with sample RFP
+  - [x] DOCX extraction test with sample scope document
+  - [x] TXT extraction test
+  - [~] Empty file rejection test
+  - [~] Unsupported file type rejection test
+- [x] Scope analysis service unit tests (`tests/unit/test_scope_service.py`)
+  - [x] AI response parsing test (valid JSON)
+  - [x] Malformed AI response handling test
+  - [x] Missing required fields handling test
+- [x] WBS generation service unit tests (`tests/unit/test_wbs_service.py`)
+  - [x] WBS numbering validation test
+  - [x] Required sections inclusion test
+  - [x] Hierarchical structure test
+- [x] Output service unit tests (`tests/unit/test_output_service.py`)
+  - [x] Markdown export format test
+  - [x] CSV export format and encoding test
+  - [x] JSON export schema test
 
 ### 7.2 Integration Tests
 
-- [ ] End-to-end document upload and WBS generation test (`tests/integration/test_wbs_workflow.py`)
-- [ ] API endpoint response format tests
-- [ ] Database persistence tests (document, WBS records saved and retrievable)
+- [x] End-to-end document upload and WBS generation test (`tests/integration/test_wbs_workflow.py`)
+- [x] API endpoint response format tests
+- [x] Database persistence tests (document, WBS records saved and retrievable)
 
 ### 7.3 Sample Documents
 
-- [ ] At minimum three sample engineering RFPs collected for testing
-  - [ ] Water distribution project RFP
-  - [ ] Wastewater collection project RFP
-  - [ ] Force main project RFP
-- [ ] Sample documents stored in `tests/fixtures/documents/`
-- [ ] Expected WBS outputs documented for each sample document
+- [~] At minimum three sample engineering RFPs collected for testing
+  - [~] Water distribution project RFP
+  - [~] Wastewater collection project RFP
+  - [~] Force main project RFP
+- [~] Sample documents stored in `tests/fixtures/documents/`
+- [~] Expected WBS outputs documented for each sample document
 
 ### 7.4 Performance
 
-- [ ] End-to-end processing time benchmarked against target (< 2 minutes per document)
-- [ ] API response time acceptable for document upload endpoint
+- [~] End-to-end processing time benchmarked against target (< 2 minutes per document)
+- [~] API response time acceptable for document upload endpoint
 
 ---
 
 ## 8. Configuration and Environment
 
-- [ ] All AI API keys stored in environment variables (not hardcoded)
-- [ ] `.env.example` updated with all MVP-required variables:
-  - [ ] `ANTHROPIC_API_KEY`
-  - [ ] `OPENAI_API_KEY` (optional)
-  - [ ] `AI_PROVIDER` (claude or openai)
-  - [ ] `DATABASE_URL`
-  - [ ] `SECRET_KEY`
-  - [ ] `UPLOAD_DIR`
-  - [ ] `OUTPUT_DIR`
-- [ ] Settings class updated to include all new configuration fields
-- [ ] Application startup validates required environment variables
+- [x] All AI API keys stored in environment variables (not hardcoded)
+- [x] `.env.example` updated with all MVP-required variables:
+  - [x] `ANTHROPIC_API_KEY`
+  - [x] `OPENAI_API_KEY` (optional)
+  - [x] `AI_PROVIDER` (claude or openai)
+  - [x] `DATABASE_URL`
+  - [x] `SECRET_KEY`
+  - [x] `UPLOAD_DIR`
+  - [~] `OUTPUT_DIR`
+- [x] Settings class updated to include all new configuration fields
+- [x] Application startup validates required environment variables
 
 ---
 
 ## 9. Docker and Deployment
 
-- [ ] `docker/` configuration reviewed and updated for MVP services
-- [ ] Docker Compose file includes required services (app, database)
-- [ ] Application starts successfully in Docker environment
-- [ ] Database migrations run automatically on container startup
-- [ ] Upload and output directories mounted as volumes
+- [~] `docker/` configuration reviewed and updated for MVP services
+- [~] Docker Compose file includes required services (app, database)
+- [~] Application starts successfully in Docker environment
+- [~] Database migrations run automatically on container startup
+- [~] Upload and output directories mounted as volumes
 
 ---
 
 ## 10. Documentation
 
-- [ ] API endpoint documentation (FastAPI auto-generated OpenAPI docs verified at `/docs`)
-- [ ] README updated to reflect current MVP scope and workflow
-- [ ] Setup instructions documented (local development, Docker)
+- [x] API endpoint documentation (FastAPI auto-generated OpenAPI docs verified at `/docs`)
+- [~] README updated to reflect current MVP scope and workflow
+- [~] Setup instructions documented (local development, Docker)
 - [ ] Sample workflow documented (upload → analyze → export)
 - [ ] Known limitations documented
 

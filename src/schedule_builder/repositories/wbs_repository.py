@@ -54,6 +54,12 @@ class WbsRepository:
         )
         return result
 
+    def get_latest_by_project(self, project_id: str) -> WbsRun | None:
+        """Retrieve the most recent WBS run for a project."""
+        return self._db.scalar(
+            select(WbsRun).where(WbsRun.project_id == project_id).order_by(WbsRun.created_at.desc())
+        )
+
     def get_wbs_items(self, wbs_run_id: str) -> list[WbsItem]:
         """Get all items for a WBS run."""
         result = self._db.scalars(
