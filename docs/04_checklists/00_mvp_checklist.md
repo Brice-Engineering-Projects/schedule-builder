@@ -48,9 +48,9 @@ Use this checklist to track what has been completed, what is in progress, and wh
 - [x] `main.py` entrypoint exists at project root
 - [x] FastAPI application instance created (`src/schedule_builder/main.py`)
 - [x] API router registered (`src/schedule_builder/api/router.py`)
-- [ ] Application settings configured (`src/schedule_builder/config/settings.py`)
-- [ ] Logging configured (`src/schedule_builder/core/logging.py`)
-- [ ] Core middleware registered (`src/schedule_builder/core/middleware.py`)
+- [x] Application settings configured (`src/schedule_builder/config/settings.py`)
+- [x] Logging configured (`src/schedule_builder/core/logging.py`)
+- [x] Core middleware registered (`src/schedule_builder/core/middleware.py`)
 - [ ] Core exceptions defined (`src/schedule_builder/core/exceptions.py`)
 
 ### 1.3 Database

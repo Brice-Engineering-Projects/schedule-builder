@@ -141,6 +141,10 @@ class Settings(BaseSettings):
         default=7,
         description="JWT refresh token expiration in days",
     )
+    admin_api_token: str = Field(
+        default="dev-admin-token",
+        description="Header token used for admin endpoints",
+    )
 
     ############################################################################
     # THIRD-PARTY INTEGRATIONS
