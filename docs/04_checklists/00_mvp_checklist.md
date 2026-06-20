@@ -59,10 +59,12 @@ Use this checklist to track what has been completed, what is in progress, and wh
 - [x] SQLAlchemy declarative base configured (`src/schedule_builder/db/base.py`)
 - [x] Base model with common fields defined (`src/schedule_builder/models/base.py`)
 - [x] Alembic migration environment initialized
-- [x] Initial database migration created and applied
+- [x] Initial database migration created (revision `d49fe5886470`) and applied
+- [x] User record model created (`src/schedule_builder/models/user.py`)
 - [x] Project record model created (`src/schedule_builder/models/project.py`)
 - [x] Document record model created (`src/schedule_builder/models/document.py`)
-- [x] WBS record model created (`src/schedule_builder/models/wbs.py`)
+- [x] Scope analysis record model created (`src/schedule_builder/models/scope_analysis.py`)
+- [x] WBS record models created (`src/schedule_builder/models/wbs.py` — WbsRun and WbsItem)
 
 ### 1.4 Authentication
 
@@ -90,39 +92,39 @@ Use this checklist to track what has been completed, what is in progress, and wh
 
 ### 2.1 Document Ingestion Service
 
-- [ ] Document upload endpoint created (`POST /api/v1/documents/upload`)
-- [ ] Accepted file types validated (PDF, DOCX, TXT)
-- [ ] File size limits enforced
-- [ ] Uploaded file stored (local filesystem or object storage)
-- [ ] Document record saved to database
-- [ ] Document upload schema defined (`src/schedule_builder/schemas/document.py`)
+- [x] Document upload endpoint created (`POST /v1/documents/upload`)
+- [x] Accepted file types validated (PDF, DOCX, TXT)
+- [x] File size limits enforced
+- [x] Uploaded file stored (local filesystem or object storage)
+- [x] Document record saved to database
+- [x] Document upload schema defined (`src/schedule_builder/schemas/document.py`)
 
 ### 2.2 PDF Processing
 
-- [ ] PDF text extraction service created (`src/schedule_builder/services/document_service.py`)
-- [ ] PyMuPDF integration implemented for PDF text extraction
-- [ ] Page-level text extraction working
-- [ ] Multi-page document handling verified
-- [ ] Extracted text cleaned (whitespace normalization, encoding issues resolved)
-- [ ] Extraction metadata captured (page count, file size, extraction timestamp)
+- [x] PDF text extraction service created (`src/schedule_builder/services/document_service.py`)
+- [x] PyMuPDF integration implemented for PDF text extraction
+- [x] Page-level text extraction working
+- [x] Multi-page document handling verified
+- [x] Extracted text cleaned (whitespace normalization, encoding issues resolved)
+- [x] Extraction metadata captured (page count, file size, extraction timestamp)
 
 ### 2.3 DOCX Processing
 
-- [ ] python-docx integration implemented
-- [ ] Paragraph-level text extraction working
-- [ ] Table extraction working (scope-of-services tables common in RFPs)
-- [ ] Heading structure preserved where possible
+- [x] python-docx integration implemented
+- [x] Paragraph-level text extraction working
+- [x] Table extraction working (scope-of-services tables common in RFPs)
+- [x] Heading structure preserved where possible
 
 ### 2.4 TXT Processing
 
-- [ ] Plain text ingestion implemented
-- [ ] Encoding detection and normalization implemented (UTF-8, Latin-1)
+- [x] Plain text ingestion implemented
+- [x] Encoding detection and normalization implemented (UTF-8, Latin-1)
 
 ### 2.5 Document Validation
 
-- [ ] Extracted text minimum length validated (reject empty or near-empty extractions)
-- [ ] Pydantic schema defined for validated document text output
-- [ ] Extraction failure handled with clear error response
+- [x] Extracted text minimum length validated (reject empty or near-empty extractions)
+- [x] Pydantic schema defined for validated document text output
+- [x] Extraction failure handled with clear error response
 
 ---
 
@@ -262,39 +264,49 @@ Use this checklist to track what has been completed, what is in progress, and wh
 
 ### 6.1 Document Endpoints
 
-- [ ] `POST /api/v1/documents/upload` — Upload document and trigger processing
-- [ ] `GET /api/v1/documents/{document_id}` — Retrieve document record and status
-- [ ] `GET /api/v1/documents/{document_id}/text` — Retrieve extracted text
+- [x] `POST /v1/documents/upload` — Upload document and trigger processing
+- [x] `GET /v1/documents/{document_id}` — Retrieve document record and status
+- [x] `GET /v1/documents/{document_id}/text` — Retrieve extracted text
 
 ### 6.2 Project Endpoints
 
-- [ ] `POST /api/v1/projects` — Create a new project
-- [ ] `GET /api/v1/projects/{project_id}` — Retrieve project details
-- [ ] `GET /api/v1/projects` — List projects for authenticated user
+- [ ] `POST /v1/projects` — Create a new project
+- [ ] `GET /v1/projects/{project_id}` — Retrieve project details
+- [ ] `GET /v1/projects` — List projects for authenticated user
 
 ### 6.3 WBS Endpoints
 
-- [ ] `GET /api/v1/projects/{project_id}/wbs` — Retrieve generated WBS
-- [ ] `GET /api/v1/projects/{project_id}/wbs/export?format=markdown` — Export WBS as Markdown
-- [ ] `GET /api/v1/projects/{project_id}/wbs/export?format=csv` — Export WBS as CSV
-- [ ] `GET /api/v1/projects/{project_id}/wbs/export?format=json` — Export WBS as JSON
+- [ ] `GET /v1/projects/{project_id}/wbs` — Retrieve generated WBS
+- [ ] `GET /v1/projects/{project_id}/wbs/export?format=markdown` — Export WBS as Markdown
+- [ ] `GET /v1/projects/{project_id}/wbs/export?format=csv` — Export WBS as CSV
+- [ ] `GET /v1/projects/{project_id}/wbs/export?format=json` — Export WBS as JSON
 
 ### 6.4 Analysis Endpoints
 
-- [ ] `GET /api/v1/projects/{project_id}/scope` — Retrieve scope analysis results
-- [ ] `GET /api/v1/projects/{project_id}/disciplines` — Retrieve identified disciplines
-- [ ] `GET /api/v1/projects/{project_id}/deliverables` — Retrieve identified deliverables
+- [ ] `GET /v1/projects/{project_id}/scope` — Retrieve scope analysis results
+- [ ] `GET /v1/projects/{project_id}/disciplines` — Retrieve identified disciplines
+- [ ] `GET /v1/projects/{project_id}/deliverables` — Retrieve identified deliverables
 
 ### 6.5 Existing Infrastructure Endpoints
 
 - [ ] `GET /health` — Health check
 - [ ] `POST /auth/login` — User login
 - [ ] `POST /auth/register` — User registration
-- [ ] `GET /api/v1/users/me` — Current user profile
+- [ ] `GET /v1/users/me` — Current user profile
 
 ---
 
 ## 7. Testing
+
+**Test Infrastructure Complete:**
+- [x] pytest configured (`tests/conftest.py`)
+- [x] SQLite in-memory fixtures for database isolation (`db_session`, `test_engine`)
+- [x] FastAPI TestClient fixture with dependency override (`client`)
+- [x] Auth tests passing (register, login, JWT flow)
+- [x] User endpoint tests passing (`GET /api/v1/users/me`)
+- [x] Admin endpoint tests passing
+- [x] Health check tests passing
+- [x] Mypy type checking passing
 
 ### 7.1 Unit Tests
 
