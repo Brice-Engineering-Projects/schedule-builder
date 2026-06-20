@@ -51,7 +51,7 @@ Use this checklist to track what has been completed, what is in progress, and wh
 - [x] Application settings configured (`src/schedule_builder/config/settings.py`)
 - [x] Logging configured (`src/schedule_builder/core/logging.py`)
 - [x] Core middleware registered (`src/schedule_builder/core/middleware.py`)
-- [ ] Core exceptions defined (`src/schedule_builder/core/exceptions.py`)
+- [x] Core exceptions defined (`src/schedule_builder/core/exceptions.py`)
 
 ### 1.3 Database
 
@@ -66,13 +66,13 @@ Use this checklist to track what has been completed, what is in progress, and wh
 
 ### 1.4 Authentication
 
-- [ ] Authentication service implemented (`src/schedule_builder/auth/service.py`)
-- [ ] JWT token utilities implemented (`src/schedule_builder/auth/tokens.py`)
-- [ ] Auth route handlers implemented (`src/schedule_builder/auth/routes.py`)
-- [ ] Auth schemas defined (`src/schedule_builder/auth/schemas.py`)
-- [ ] Auth dependencies implemented (`src/schedule_builder/auth/dependencies.py`)
-- [ ] Password hashing utilities implemented (`src/schedule_builder/utils/hashing.py`)
-- [ ] Security utilities implemented (`src/schedule_builder/core/security.py`)
+- [x] Authentication service implemented (`src/schedule_builder/auth/service.py`)
+- [x] JWT token utilities implemented (`src/schedule_builder/auth/tokens.py`)
+- [x] Auth route handlers implemented (`src/schedule_builder/auth/routes.py`)
+- [x] Auth schemas defined (`src/schedule_builder/auth/schemas.py`)
+- [x] Auth dependencies implemented (`src/schedule_builder/auth/dependencies.py`)
+- [x] Password hashing utilities implemented (`src/schedule_builder/utils/hashing.py`)
+- [x] Security utilities implemented (`src/schedule_builder/core/security.py`)
 
 ### 1.5 User Management
 
