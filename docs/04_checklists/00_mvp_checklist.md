@@ -76,13 +76,13 @@ Use this checklist to track what has been completed, what is in progress, and wh
 
 ### 1.5 User Management
 
-- [ ] User model defined (`src/schedule_builder/models/user.py`)
-- [ ] User repository implemented (`src/schedule_builder/repositories/user_repository.py`)
-- [ ] User service implemented (`src/schedule_builder/services/user_service.py`)
-- [ ] User schemas defined (`src/schedule_builder/schemas/user.py`)
-- [ ] User routes implemented (`src/schedule_builder/api/v1/routes_users.py`)
-- [ ] Admin routes implemented (`src/schedule_builder/api/v1/routes_admin.py`)
-- [ ] Health check route implemented (`src/schedule_builder/api/v1/routes_health.py`)
+- [x] User model defined (`src/schedule_builder/models/user.py`)
+- [x] User repository implemented (`src/schedule_builder/repositories/user_repository.py`)
+- [x] User service implemented (`src/schedule_builder/services/user_service.py`)
+- [x] User schemas defined (`src/schedule_builder/schemas/user.py`)
+- [x] User routes implemented (`src/schedule_builder/api/v1/routes_users.py`)
+- [x] Admin routes implemented (`src/schedule_builder/api/v1/routes_admin.py`)
+- [x] Health check route implemented (`src/schedule_builder/api/v1/routes_health.py`)
 
 ---
 
