@@ -232,47 +232,47 @@ Use this checklist to track what has been completed, what is in progress, and wh
 
 ### 5.1 Scope Summary Output
 
-- [ ] Scope summary text generated from AI analysis
-- [ ] Summary length appropriate for proposal use (2–5 sentences)
-- [ ] Summary included in all export formats
+- [x] Scope summary text generated from AI analysis
+- [x] Summary length appropriate for proposal use (2–5 sentences)
+- [x] Summary included in all export formats
 
 ### 5.2 Discipline List Output
 
-- [ ] Discipline list generated from AI analysis
-- [ ] Disciplines formatted as clean text list
-- [ ] Disciplines sorted alphabetically
+- [x] Discipline list generated from AI analysis
+- [x] Disciplines formatted as clean text list
+- [x] Disciplines sorted alphabetically
 
 ### 5.3 Deliverable List Output
 
-- [ ] Deliverable list generated from AI analysis
-- [ ] Deliverables formatted as clean text list
-- [ ] Deliverables sorted by project phase where possible
+- [x] Deliverable list generated from AI analysis
+- [x] Deliverables formatted as clean text list
+- [x] Deliverables sorted by project phase where possible
 
 ### 5.4 WBS Output — Markdown
 
-- [ ] WBS exported as formatted Markdown
-- [ ] Hierarchical numbering preserved
-- [ ] Phase and task indentation applied
-- [ ] Markdown output readable in standard editors and renderers
+- [x] WBS exported as formatted Markdown
+- [x] Hierarchical numbering preserved
+- [x] Phase and task indentation applied
+- [x] Markdown output readable in standard editors and renderers
 
 ### 5.5 WBS Output — CSV
 
-- [ ] WBS exported as CSV
-- [ ] Columns: `wbs_number`, `title`, `level`, `parent_wbs_number`
-- [ ] CSV compatible with standard spreadsheet applications
-- [ ] UTF-8 encoding applied
+- [x] WBS exported as CSV
+- [x] Columns: `wbs_number`, `title`, `level`, `parent_wbs_number`
+- [x] CSV compatible with standard spreadsheet applications
+- [x] UTF-8 encoding applied
 
 ### 5.6 WBS Output — JSON
 
-- [ ] WBS exported as structured JSON
-- [ ] JSON schema consistent with internal Pydantic models
-- [ ] JSON suitable for future API integrations
+- [x] WBS exported as structured JSON
+- [x] JSON schema consistent with internal Pydantic models
+- [x] JSON suitable for future API integrations
 
 ### 5.7 Output Service
 
-- [ ] Output generation service created (`src/schedule_builder/services/output_service.py`)
-- [ ] All output formats generated from a single service call
-- [ ] Output files saved to project output directory or returned as API response
+- [x] Output generation service created (`src/schedule_builder/services/output_service.py`)
+- [x] All output formats generated from a single service call
+- [x] Output files saved to project output directory or returned as API response
 
 ---
 
