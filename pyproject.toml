@@ -1,7 +1,32 @@
+[build-system]
+requires = ["setuptools>=68", "setuptools-scm>=8"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
 [project]
 name = "schedule-builder"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "alembic>=1.18.4",
+    "anthropic>=0.111.0",
+    "fastapi>=0.137.2",
+    "openai>=2.43.0",
+    "pdfplumber>=0.11.10",
+    "pre-commit>=4.6.0",
+    "pydantic>=2.13.4",
+    "pymupdf>=1.27.2.3",
+    "python-docx>=1.2.0",
+    "sqlalchemy>=2.0.51",
+    "uvicorn>=0.49.0",
+]
+
+[dependency-groups]
+dev = [
+    "httpx2>=2.4.0",
+    "pytest>=8.0.0",
+]

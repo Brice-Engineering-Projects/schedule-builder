@@ -164,6 +164,86 @@ Specific implementation details are documented within the project architecture d
 
 ---
 
+## Getting Started
+
+### Prerequisites
+
+* Python 3.12 or higher
+* [`uv`](https://docs.astral.sh/uv/) – Fast Python package installer and resolver
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd schedule-builder
+```
+
+2. Install dependencies using `uv`:
+```bash
+uv sync
+```
+
+This command will:
+- Create a virtual environment (`.venv`)
+- Install all project dependencies
+- Install development dependencies from the `dev` group
+
+For detailed `uv` setup instructions, see the [uv documentation](https://docs.astral.sh/uv/getting-started/).
+
+### Running the FastAPI Development Server
+
+Start the development server with auto-reload enabled:
+
+```bash
+uv run uvicorn schedule_builder.main:app --reload
+```
+
+The API will be available at `http://localhost:8000`.
+
+### Accessing the API Documentation
+
+Once the server is running:
+
+* **Swagger UI (Interactive API docs):** http://localhost:8000/docs
+* **ReDoc (Alternative API docs):** http://localhost:8000/redoc
+* **OpenAPI Schema:** http://localhost:8000/openapi.json
+
+### Health Check
+
+Verify the server is running:
+
+```bash
+curl http://localhost:8000/health
+```
+
+Expected response:
+```json
+{"status": "ok"}
+```
+
+### Running Tests
+
+Run the test suite:
+
+```bash
+uv run pytest
+```
+
+Run tests with verbose output:
+
+```bash
+uv run pytest -v
+```
+
+Run a specific test file:
+
+```bash
+uv run pytest tests/api/test_health.py
+```
+
+---
+
 ## Documentation
 
 ### Project Documentation

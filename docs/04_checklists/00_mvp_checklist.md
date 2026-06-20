@@ -32,16 +32,16 @@ Use this checklist to track what has been completed, what is in progress, and wh
 - [x] `.gitignore` configured
 - [x] `.dockerignore` configured
 - [ ] Pre-commit hooks configured (`.pre-commit-config.yaml`)
-- [ ] All required MVP dependencies added to `pyproject.toml`
-  - [ ] `pymupdf` (PDF processing)
-  - [ ] `pdfplumber` (PDF processing fallback)
-  - [ ] `python-docx` (DOCX processing)
-  - [ ] `anthropic` (Claude API)
-  - [ ] `openai` (OpenAI API, optional secondary)
-  - [ ] `pydantic` (data validation)
-  - [ ] `fastapi` (web framework)
-  - [ ] `sqlalchemy` (ORM)
-  - [ ] `alembic` (database migrations)
+- [x] All required MVP dependencies added to `pyproject.toml`
+  - [x] `pymupdf` (PDF processing)
+  - [x] `pdfplumber` (PDF processing fallback)
+  - [x] `python-docx` (DOCX processing)
+  - [x] `anthropic` (Claude API)
+  - [x] `openai` (OpenAI API, optional secondary)
+  - [x] `pydantic` (data validation)
+  - [x] `fastapi` (web framework)
+  - [x] `sqlalchemy` (ORM)
+  - [x] `alembic` (database migrations)
 
 ### 1.2 Application Entrypoint
 
