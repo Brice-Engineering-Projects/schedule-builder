@@ -73,7 +73,7 @@ def test_full_wbs_workflow(client, db_session, tmp_path, monkeypatch) -> None:
 
     try:
         email = f"workflow.{uuid4().hex[:8]}@example.com"
-        user_id, token = _register_and_login(client, email)
+        _, token = _register_and_login(client, email)
         auth = {"Authorization": f"Bearer {token}"}
 
         # ── 1. Create project ───────────────────────────────────────────────
@@ -100,7 +100,10 @@ def test_full_wbs_workflow(client, db_session, tmp_path, monkeypatch) -> None:
         assert upload_resp.status_code == 201, upload_resp.json()
         document_id = upload_resp.json()["document"]["id"]
 
-        # ── 3. Generate WBS ─────────────────────────────────────────────────
+        # ── 3. Run scope analysis, then generate WBS ───────────────────────
+        scope_analysis_resp = client.post(f"/v1/documents/{document_id}/scope", headers=auth)
+        assert scope_analysis_resp.status_code == 200, scope_analysis_resp.json()
+
         wbs_resp = client.post(
             "/v1/wbs/generate",
             json={"document_id": document_id},
