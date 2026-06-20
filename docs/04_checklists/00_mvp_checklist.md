@@ -28,7 +28,7 @@ Use this checklist to track what has been completed, what is in progress, and wh
 - [x] Repository initialized with version control
 - [x] Python version pinned (`.python-version`)
 - [x] `pyproject.toml` configured with dependencies
-- [ ] `.env.example` created with required environment variables
+- [x] `.env.example` created with required environment variables
 - [x] `.gitignore` configured
 - [x] `.dockerignore` configured
 - [x] Pre-commit hooks configured (`.pre-commit-config.yaml`)
@@ -55,14 +55,14 @@ Use this checklist to track what has been completed, what is in progress, and wh
 
 ### 1.3 Database
 
-- [ ] Database session management implemented (`src/schedule_builder/db/session.py`)
-- [ ] SQLAlchemy declarative base configured (`src/schedule_builder/db/base.py`)
-- [ ] Base model with common fields defined (`src/schedule_builder/models/base.py`)
-- [ ] Alembic migration environment initialized
-- [ ] Initial database migration created and applied
-- [ ] Project record model created (`src/schedule_builder/models/project.py`)
-- [ ] Document record model created (`src/schedule_builder/models/document.py`)
-- [ ] WBS record model created (`src/schedule_builder/models/wbs.py`)
+- [x] Database session management implemented (`src/schedule_builder/db/session.py`)
+- [x] SQLAlchemy declarative base configured (`src/schedule_builder/db/base.py`)
+- [x] Base model with common fields defined (`src/schedule_builder/models/base.py`)
+- [x] Alembic migration environment initialized
+- [x] Initial database migration created and applied
+- [x] Project record model created (`src/schedule_builder/models/project.py`)
+- [x] Document record model created (`src/schedule_builder/models/document.py`)
+- [x] WBS record model created (`src/schedule_builder/models/wbs.py`)
 
 ### 1.4 Authentication
 
