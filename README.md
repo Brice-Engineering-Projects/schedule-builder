@@ -53,31 +53,31 @@ Schedule Builder aims to improve consistency, efficiency, and transparency throu
 
 ### Schedule Template Library
 
-Generate schedules from predefined project templates.
+>Generate schedules from predefined project templates.
 
 ### Task and Milestone Generation
 
-Create project-specific task lists and milestone schedules.
+>Create project-specific task lists and milestone schedules.
 
 ### Staffing Planning
 
-Develop staffing allocations by discipline and project phase.
+>Develop staffing allocations by discipline and project phase.
 
 ### Resource Allocation
 
-Generate labor-hour summaries and resource loading tables.
+>Generate labor-hour summaries and resource loading tables.
 
 ### Schedule Assumptions
 
-Produce standardized planning assumptions suitable for proposal documents.
+>Produce standardized planning assumptions suitable for proposal documents.
 
 ### Risk Registers
 
-Generate project-specific risks and mitigation measures.
+>Generate project-specific risks and mitigation measures.
 
 ### Proposal Narratives
 
-Generate schedule narratives for proposal submissions.
+>Generate schedule narratives for proposal submissions.
 
 ---
 

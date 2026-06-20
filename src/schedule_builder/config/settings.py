@@ -23,7 +23,7 @@ class Settings(BaseSettings):
     # ENVIRONMENT
     ############################################################################
 
-    environment: Literal["development", "staging", "production"] = Field(
+    environment: Literal["development", "staging", "production", "testing"] = Field(
         default="development",
         description="Application environment",
     )
@@ -104,9 +104,20 @@ class Settings(BaseSettings):
     # DATABASE CONFIGURATION
     ############################################################################
 
-    database_url: str = Field(
+    production_database_url: str = Field(
         default="sqlite:///./test.db",
-        description="Database connection URL",
+        alias="DATABASE_URL",
+        description="Database connection URL for production/staging",
+    )
+    dev_database_url: str | None = Field(
+        default=None,
+        alias="DEV_DATABASE_URL",
+        description="Database connection URL for development",
+    )
+    test_database_url: str | None = Field(
+        default=None,
+        alias="TEST_DATABASE_URL",
+        description="Database connection URL for testing",
     )
     database_echo: bool = Field(
         default=False,
@@ -141,6 +152,10 @@ class Settings(BaseSettings):
         default=7,
         description="JWT refresh token expiration in days",
     )
+    admin_api_token: str = Field(
+        default="dev-admin-token",
+        description="Header token used for admin endpoints",
+    )
 
     ############################################################################
     # THIRD-PARTY INTEGRATIONS
@@ -164,6 +179,10 @@ class Settings(BaseSettings):
     openai_model: str = Field(
         default="gpt-4",
         description="OpenAI model ID",
+    )
+    ai_provider: Literal["claude", "openai"] = Field(
+        default="claude",
+        description="Primary AI provider for scope analysis",
     )
 
     # SendGrid (Email)
@@ -240,6 +259,22 @@ class Settings(BaseSettings):
     def is_development(self) -> bool:
         """Check if running in development environment."""
         return self.environment == "development"
+
+    def is_testing(self) -> bool:
+        """Check if running in testing environment."""
+        return self.environment == "testing"
+
+    @property
+    def database_url(self) -> str:
+        """Resolve the database URL based on active environment."""
+
+        if self.environment == "development":
+            return self.dev_database_url or self.production_database_url
+
+        if self.environment == "testing":
+            return self.test_database_url or self.production_database_url
+
+        return self.production_database_url
 
 
 # Global settings instance

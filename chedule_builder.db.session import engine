@@ -1,0 +1,11 @@
+                List of relations
+ Schema |      Name       | Type  |    Owner
+--------+-----------------+-------+--------------
+ public | alembic_version | table | brice-nelson
+ public | documents       | table | brice-nelson
+ public | projects        | table | brice-nelson
+ public | scope_analyses  | table | brice-nelson
+ public | users           | table | brice-nelson
+ public | wbs_items       | table | brice-nelson
+ public | wbs_runs        | table | brice-nelson
+(7 rows)
