@@ -31,7 +31,7 @@ Use this checklist to track what has been completed, what is in progress, and wh
 - [ ] `.env.example` created with required environment variables
 - [x] `.gitignore` configured
 - [x] `.dockerignore` configured
-- [ ] Pre-commit hooks configured (`.pre-commit-config.yaml`)
+- [x] Pre-commit hooks configured (`.pre-commit-config.yaml`)
 - [x] All required MVP dependencies added to `pyproject.toml`
   - [x] `pymupdf` (PDF processing)
   - [x] `pdfplumber` (PDF processing fallback)
@@ -46,8 +46,8 @@ Use this checklist to track what has been completed, what is in progress, and wh
 ### 1.2 Application Entrypoint
 
 - [x] `main.py` entrypoint exists at project root
-- [ ] FastAPI application instance created (`src/schedule_builder/main.py`)
-- [ ] API router registered (`src/schedule_builder/api/router.py`)
+- [x] FastAPI application instance created (`src/schedule_builder/main.py`)
+- [x] API router registered (`src/schedule_builder/api/router.py`)
 - [ ] Application settings configured (`src/schedule_builder/config/settings.py`)
 - [ ] Logging configured (`src/schedule_builder/core/logging.py`)
 - [ ] Core middleware registered (`src/schedule_builder/core/middleware.py`)

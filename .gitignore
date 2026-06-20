@@ -1,22 +1,256 @@
-# Ignore Python bytecode files
+################################################################################
+# PYTHON ARTIFACTS
+################################################################################
+
+# Bytecode and compiled files
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
 
-# Ignore virtual environments
-.venv/
-venv/
+# C extensions
+*.so
 
-# Ignore environment files
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# Environments
 .env
-.env.prod
 .env.local
+.env.*.local
+.env.prod
+.env.staging
+.env.dev
 
-# Ignore IDE files
+################################################################################
+# PACKAGE MANAGER VIRTUAL ENVIRONMENTS
+################################################################################
+
+# Python virtual environments (pip, venv)
+venv/
+ENV/
+env/
+.venv/
+
+# Poetry (https://python-poetry.org/)
+poetry.lock
+
+# Pipenv (https://github.com/pypa/pipenv)
+Pipfile.lock
+
+# Conda environments
+conda-env/
+conda-env-*/
+miniconda-env/
+
+# uv (https://github.com/astral-sh/uv)
+.venv/
+uv.lock
+
+################################################################################
+# IDE AND EDITOR FILES
+################################################################################
+
+# VS Code (https://code.visualstudio.com/)
 .vscode/
+*.code-workspace
+.history/
+.vscode-test
+.vscode-profile
+
+# JetBrains IDEs (PyCharm, IntelliJ IDEA, etc.)
 .idea/
+*.iml
+*.iws
+*.ipr
+*.idc
+out/
+.DS_Store
+*.swp
+*.swo
+*~
 
-# Ignore logs
-logs/*.log
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
 
+# Emacs
+*~
+.\#*
 
+# Vim
+.swp
+.swo
+*.vim
+
+# nano
+.nano_history
+
+################################################################################
+# OS-SPECIFIC FILES
+################################################################################
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+.directory
+
+################################################################################
+# BUILD AND CACHE FILES
+################################################################################
+
+# Build artifacts
+*.o
+*.a
+*.so
+*.dylib
+
+# Pre-commit cache
+.pre-commit
+.pre-commit-config.yaml.bak
+
+# Local development artifacts
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+
+# Ruff cache
+.ruff_cache/
+
+# uv cache
+.uv/
+
+# Pip cache
+.pip-cache/
+
+################################################################################
+# LOCAL AND SENSITIVE FILES
+################################################################################
+
+# Local configuration (not to be committed)
+local_config.py
+settings_local.py
+
+# API keys and secrets
+*.key
+*.pem
+*.pfx
+*.p12
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# IDE scratch/workspace files
+*.scratch.py
+.idea/workspace.xml
+.vscode/settings.local.json
+
+################################################################################
+# APPLICATION-SPECIFIC
+################################################################################
+
+# Logs
+logs/
+*.log
+
+# Distribution
+dist/
+build/
+
+# Package-specific
 src/schedule_builder.egg-info/
+src/schedule_builder/__pycache__/
+
+# Uploads and media
+uploads/
+media/
+static/collected_static/
+
+# Database migrations (if applicable)
+# migrations/versions/*.py  # Uncomment if you want to exclude migration files
+
+# Reports
+reports/
+htmlcov/
