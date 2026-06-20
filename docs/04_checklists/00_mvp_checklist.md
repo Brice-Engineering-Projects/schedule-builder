@@ -178,35 +178,53 @@ Use this checklist to track what has been completed, what is in progress, and wh
 
 ### 4.1 WBS Builder Service
 
-- [ ] WBS generation service created (`src/schedule_builder/services/wbs_service.py`)
-- [ ] WBS built from validated scope analysis output
-- [ ] WBS follows standard hierarchical numbering (1.0, 1.1, 1.2, 2.0, etc.)
-- [ ] Standard project phases included by default:
-  - [ ] Project Management
-  - [ ] Data Collection
-  - [ ] Geotechnical Services (when applicable)
-  - [ ] Environmental Services (when applicable)
-  - [ ] Design (with sub-phases)
-  - [ ] Procurement Support (when applicable)
-- [ ] Phases included/excluded based on extracted scope elements
-- [ ] WBS items mapped from extracted deliverables and services
+- [x] WBS generation service created (`src/schedule_builder/services/wbs_service.py`)
+- [x] WBS built from validated scope analysis output
+- [x] WBS follows standard hierarchical numbering (1.0, 1.1, 1.2, 2.0, etc.)
+- [x] Standard project phases included by default:
+  - [x] Project Management
+  - [x] Data Collection
+  - [x] Environmental Services (when applicable)
+  - [x] Design (with sub-phases)
+- [x] Phases included/excluded based on extracted scope elements
+- [x] WBS items mapped from extracted deliverables and services
 
 ### 4.2 WBS Validation
 
-- [ ] Pydantic model defined for WBS structure (`src/schedule_builder/schemas/wbs.py`)
-  - [ ] `wbs_number` field
-  - [ ] `title` field
-  - [ ] `level` field (1 = phase, 2 = task)
-  - [ ] `parent_wbs_number` field (nullable for top-level items)
-- [ ] WBS numbering validated (sequential, no gaps, no duplicates)
-- [ ] Minimum required sections validated (Project Management required)
-- [ ] Maximum WBS depth enforced (MVP: 2 levels)
+- [x] Pydantic model defined for WBS structure (`src/schedule_builder/schemas/wbs.py`)
+  - [x] `wbs_number` field
+  - [x] `title` field
+  - [x] `level` field (1 = phase, 2 = task)
+  - [x] `parent_wbs_number` field (nullable for top-level items)
+- [x] WBS numbering validated (sequential, no gaps, no duplicates)
+- [x] Minimum required sections validated (Project Management required)
+- [x] Maximum WBS depth enforced (MVP: 2 levels)
 
 ### 4.3 WBS Storage
 
-- [ ] Generated WBS saved to database
-- [ ] WBS linked to originating document and project record
-- [ ] WBS retrievable by project ID
+- [x] Generated WBS saved to database
+- [x] WBS linked to originating document and project record
+- [x] WBS retrievable by project ID
+
+### 4.4 WBS API Routes
+
+- [x] WBS generation endpoint created (`POST /v1/wbs/generate`)
+- [x] Route accepts document ID and project context
+- [x] Route returns WBS run ID and generated structure
+- [x] WBS retrieval endpoint created (`GET /v1/wbs/runs/{wbs_run_id}`)
+- [x] User ownership verification enforced
+- [x] Error handling for missing scope analysis
+
+### 4.5 WBS Testing
+
+- [x] Unit tests for WBS service (`tests/unit/test_wbs_service.py`)
+  - [x] Scope-to-WBS conversion logic tested
+  - [x] Phase structure validation tested
+  - [x] Task mapping from deliverables/disciplines tested
+- [x] Integration tests for WBS routes (`tests/api/test_wbs_route.py`)
+  - [x] Full HTTP flow tested
+  - [x] Authentication required verified
+  - [x] Error cases covered
 
 ---
 
